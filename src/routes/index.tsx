@@ -304,10 +304,10 @@ function Home() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden w-full max-w-full relative">
       {/* ---------- Top announcement bar ---------- */}
-      <div className="bg-forest text-forest-foreground border-b border-forest-foreground/10">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 py-2 text-xs">
+      <div className="bg-forest text-forest-foreground border-b border-forest-foreground/10 w-full overflow-hidden">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 sm:gap-4 px-3 sm:px-6 py-2 text-xs">
           <div className="flex items-center gap-2 font-semibold text-forest-foreground/95">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-gold/20 px-2.5 py-0.5 text-[0.7rem] font-bold text-gold uppercase tracking-wider">
               Free Site Visits
@@ -318,7 +318,7 @@ function Home() {
             <span className="sm:hidden text-forest-foreground/90">7 Days a Week</span>
           </div>
 
-          <div className="flex items-center gap-4 sm:gap-6 text-forest-foreground/90 font-medium">
+          <div className="flex items-center gap-3 sm:gap-6 text-forest-foreground/90 font-medium">
             <span className="hidden md:flex items-center gap-1.5">
               <MapPin className="size-3.5 text-gold" /> {COVERAGE_PRIMARY}
             </span>
@@ -333,24 +333,24 @@ function Home() {
       </div>
 
       {/* ---------- Navigation ---------- */}
-      <header className="sticky top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur-md">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 py-2.5 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+      <header className="sticky top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur-md w-full">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 sm:px-6 py-2 sm:py-3 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center">
           {/* Mobile Call Icon (Left) */}
           <a
             href={`tel:${PHONE.replace(/\s/g, "")}`}
             aria-label="Call Browns Home & Garden"
-            className="grid size-10 place-items-center rounded-lg border border-border text-foreground hover:bg-secondary hover:text-primary transition-colors lg:hidden shrink-0"
+            className="grid size-11 place-items-center rounded-xl border border-border bg-card text-foreground hover:bg-secondary hover:text-primary transition-colors lg:hidden shrink-0 shadow-xs"
           >
             <Phone className="size-5 text-primary" />
           </a>
 
           {/* Authentic Logo (Center on mobile, Left on desktop) */}
-          <div className="flex items-center justify-center lg:justify-start">
+          <div className="flex items-center justify-center lg:justify-start flex-1 lg:flex-none px-1">
             <a href="#top" className="flex items-center group py-0.5">
               <img
                 src={LOGO_URL}
                 alt="Browns Home & Garden Logo"
-                className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                className="h-16 sm:h-20 md:h-22 w-auto object-contain transition-transform duration-200 group-hover:scale-105 max-h-24 max-w-[220px] sm:max-w-none drop-shadow-xs"
               />
             </a>
           </div>
@@ -361,7 +361,7 @@ function Home() {
               <a
                 key={n.href}
                 href={n.href}
-                className="text-sm font-bold text-foreground/80 transition-colors hover:text-primary whitespace-nowrap"
+                className="text-sm font-bold text-foreground/85 transition-colors hover:text-primary whitespace-nowrap"
               >
                 {n.label}
               </a>
@@ -385,7 +385,7 @@ function Home() {
           <button
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
-            className="grid size-10 place-items-center rounded-lg border border-border text-foreground hover:bg-secondary lg:hidden shrink-0"
+            className="grid size-11 place-items-center rounded-xl border border-border bg-card text-foreground hover:bg-secondary lg:hidden shrink-0 shadow-xs"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -393,7 +393,7 @@ function Home() {
 
         {/* Mobile Navigation Drawer */}
         {open ? (
-          <div className="border-t border-border bg-background px-4 sm:px-6 pb-6 pt-3 lg:hidden shadow-xl animate-in slide-in-from-top-2 duration-200">
+          <div className="border-t border-border bg-background px-4 sm:px-6 pb-6 pt-3 lg:hidden shadow-xl animate-in slide-in-from-top-2 duration-200 w-full">
             <div className="grid grid-cols-2 gap-2">
               {NAV.map((n) => (
                 <a
@@ -416,9 +416,9 @@ function Home() {
         ) : null}
       </header>
 
-      <main id="top">
+      <main id="top" className="w-full overflow-hidden">
         {/* ---------- Hero ---------- */}
-        <section className="relative overflow-hidden bg-forest text-forest-foreground">
+        <section className="relative overflow-hidden bg-forest text-forest-foreground w-full">
           <div
             className="absolute inset-0 opacity-30"
             style={{
@@ -906,7 +906,7 @@ function Home() {
       </main>
 
       {/* ---------- Footer ---------- */}
-      <footer className="bg-forest text-forest-foreground">
+      <footer className="bg-forest text-forest-foreground w-full overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14 sm:py-16">
           <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
             <div className="sm:col-span-2">
